@@ -52,8 +52,31 @@ namespace TicTacToe
             AImoves.Start(); // start the AI timer
         }
 
+        /// <summary>
+        /// The CPU will randomly choose a button from the list to click.
+        /// While the array is greater than 0 the CPU will operate in this game
+        /// if array is less than 0 it will stop playing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AImove(object sender, EventArgs e)
         {
+            if (buttons.Count > 0)
+            {
+                int index = rand.Next(buttons.Count); // generate a rand number in all available buttons
+
+                /* numbers being assigned to each button.
+                 * when rand number generated, look into buttons list.
+                 * then select number, i.e. 4 then select 4th button in list. */
+                buttons[index].Enabled = false;
+
+                Player currentPlayer = Player.O; // set AI to O
+                buttons[index].Text = currentPlayer.ToString(); // display O on the button
+                buttons[index].BackColor = Color.DarkSalmon;
+                buttons.RemoveAt(index); // remove button from list
+                Check(); // check at last if AI wins anything
+                AImoves.Stop();
+            }
         }
 
         private void restartGame(object sender, EventArgs e)
@@ -92,7 +115,7 @@ namespace TicTacToe
         private void Check()
         {
             /* in this function we will check if the player othe AI has won
-             we have two very large if statements with the WIN CASES */
+             * we have two very large if statements with the WIN CASES */
             if (button1.Text == "X" && button2.Text == "X" && button3.Text == "X"
                 || button4.Text == "X" && button5.Text == "X" && button6.Text == "X"
                 || button7.Text == "X" && button8.Text == "X" && button9.Text == "X"
