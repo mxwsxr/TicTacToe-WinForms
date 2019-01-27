@@ -76,9 +76,9 @@
             this.button1.Size = new System.Drawing.Size(177, 160);
             this.button1.TabIndex = 2;
             this.button1.Tag = "play";
-            this.button1.Text = "play";
+            this.button1.Text = "?";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.playerClick);
+            this.button1.Click += new System.EventHandler(this.PlayerClick);
             // 
             // button2
             // 
@@ -88,9 +88,9 @@
             this.button2.Size = new System.Drawing.Size(177, 160);
             this.button2.TabIndex = 3;
             this.button2.Tag = "play";
-            this.button2.Text = "play";
+            this.button2.Text = "?";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.playerClick);
+            this.button2.Click += new System.EventHandler(this.PlayerClick);
             // 
             // button3
             // 
@@ -100,9 +100,9 @@
             this.button3.Size = new System.Drawing.Size(177, 160);
             this.button3.TabIndex = 4;
             this.button3.Tag = "play";
-            this.button3.Text = "play";
+            this.button3.Text = "?";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.playerClick);
+            this.button3.Click += new System.EventHandler(this.PlayerClick);
             // 
             // button4
             // 
@@ -112,9 +112,9 @@
             this.button4.Size = new System.Drawing.Size(177, 160);
             this.button4.TabIndex = 5;
             this.button4.Tag = "play";
-            this.button4.Text = "play";
+            this.button4.Text = "?";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.playerClick);
+            this.button4.Click += new System.EventHandler(this.PlayerClick);
             // 
             // button5
             // 
@@ -124,9 +124,9 @@
             this.button5.Size = new System.Drawing.Size(177, 160);
             this.button5.TabIndex = 6;
             this.button5.Tag = "play";
-            this.button5.Text = "play";
+            this.button5.Text = "?";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.playerClick);
+            this.button5.Click += new System.EventHandler(this.PlayerClick);
             // 
             // button6
             // 
@@ -136,9 +136,9 @@
             this.button6.Size = new System.Drawing.Size(177, 160);
             this.button6.TabIndex = 7;
             this.button6.Tag = "play";
-            this.button6.Text = "play";
+            this.button6.Text = "?";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.playerClick);
+            this.button6.Click += new System.EventHandler(this.PlayerClick);
             // 
             // button7
             // 
@@ -148,9 +148,9 @@
             this.button7.Size = new System.Drawing.Size(177, 160);
             this.button7.TabIndex = 8;
             this.button7.Tag = "play";
-            this.button7.Text = "play";
+            this.button7.Text = "?";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.playerClick);
+            this.button7.Click += new System.EventHandler(this.PlayerClick);
             // 
             // button8
             // 
@@ -160,9 +160,9 @@
             this.button8.Size = new System.Drawing.Size(177, 160);
             this.button8.TabIndex = 9;
             this.button8.Tag = "play";
-            this.button8.Text = "play";
+            this.button8.Text = "?";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.playerClick);
+            this.button8.Click += new System.EventHandler(this.PlayerClick);
             // 
             // button9
             // 
@@ -172,9 +172,9 @@
             this.button9.Size = new System.Drawing.Size(177, 160);
             this.button9.TabIndex = 10;
             this.button9.Tag = "play";
-            this.button9.Text = "play";
+            this.button9.Text = "?";
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.playerClick);
+            this.button9.Click += new System.EventHandler(this.PlayerClick);
             // 
             // button10
             // 
@@ -185,7 +185,7 @@
             this.button10.TabIndex = 11;
             this.button10.Text = "Restart";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.restartGame);
+            this.button10.Click += new System.EventHandler(this.RestartGame);
             // 
             // AImoves
             // 
@@ -211,7 +211,7 @@
             this.Controls.Add(this.playerLabel);
             this.Name = "Form1";
             this.Text = "Tic Tac Toe MOO ICT";
-            this.Click += new System.EventHandler(this.playerClick);
+            this.Click += new System.EventHandler(this.PlayerClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 

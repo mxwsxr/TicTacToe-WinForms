@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using TicTacToe.Enums;
 
 namespace TicTacToe
 {
     public partial class Form1 : Form
     {
-        private Player currentPlayer; // calling the player class
+        private PlayerEnum currentPlayer; // calling the player class
 
         private List<Button> buttons; // creating a LIST or array of buttons
         private Random rand = new Random(); // importing the random number generator class
@@ -15,21 +16,10 @@ namespace TicTacToe
         private int playerWins = 0; // set the initial player win score to 0
         private int computerWins = 0; // set the initial computer score to 0
 
-        /// <summary>
-        /// below is the player class
-        /// which has two values: X and O
-        /// by doing this we can control the player and AI symbols.
-        /// </summary>
-        public enum Player
-        {
-            X,
-            O
-        }
-
         public Form1()
         {
             InitializeComponent();
-            resetGame();
+            ResetGame();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -40,13 +30,13 @@ namespace TicTacToe
         {
         }
 
-        private void playerClick(object sender, EventArgs e)
+        private void PlayerClick(object sender, EventArgs e)
         {
             Button button = (Button)sender; // which button was clicked
-            currentPlayer = Player.X; // set player to X
+            currentPlayer = PlayerEnum.X; // set player to X
             button.Text = currentPlayer.ToString(); // set button text to player X
             button.Enabled = false; // disable button when clicked
-            button.BackColor = System.Drawing.Color.Cyan; // change the player colour to Cyan
+            button.BackColor = Color.Cyan; // change the player colour to Cyan
             buttons.Remove(button); // remove the button from the BUTTONS LIST so the AI cant overlap with player.
             Check(); // check if the player won
             AImoves.Start(); // start the AI timer
@@ -70,24 +60,24 @@ namespace TicTacToe
                  * then select number, i.e. 4 then select 4th button in list. */
                 buttons[index].Enabled = false;
 
-                Player currentPlayer = Player.O; // set AI to O
+                PlayerEnum currentPlayer = PlayerEnum.O; // set AI to O
                 buttons[index].Text = currentPlayer.ToString(); // display O on the button
                 buttons[index].BackColor = Color.DarkSalmon;
                 buttons.RemoveAt(index); // remove button from list
                 Check(); // check at last if AI wins anything
-                AImoves.Stop();
+                AImoves.Stop(); // stop timer after moves are made
             }
         }
 
-        private void restartGame(object sender, EventArgs e)
+        private void RestartGame(object sender, EventArgs e)
         {
             /* this function is linked with the reset button
             when the reset button is clicked
             then this function will trigger the reset game function */
-            resetGame();
+            ResetGame();
         }
 
-        private void loadButtons()
+        private void LoadButtons()
         {
             // load all the buttons from the form and put them into the button list
             buttons = new List<Button> {
@@ -97,10 +87,10 @@ namespace TicTacToe
             };
         }
 
-        private void resetGame()
+        private void ResetGame()
         {
             // check each of the button with given tag "play"
-            foreach (Control X in this.Controls)
+            foreach (Control X in Controls)
             {
                 if (X is Button && X.Tag == "play")
                 {
@@ -109,7 +99,7 @@ namespace TicTacToe
                     ((Button)X).BackColor = default(Color); // change the background color to default
                 }
             }
-            loadButtons(); // add all playable buttons to the list array.
+            LoadButtons(); // add all playable buttons to the list array.
         }
 
         private void Check()
@@ -128,7 +118,7 @@ namespace TicTacToe
                 MessageBox.Show("Player Wins!");
                 playerWins++;
                 playerLabel.Text = "Player Wins- " + playerWins;
-                resetGame();
+                ResetGame();
             }
             else if (button1.Text == "O" && button2.Text == "O" && button3.Text == "O"
               || button4.Text == "O" && button5.Text == "O" && button6.Text == "O"
@@ -142,7 +132,7 @@ namespace TicTacToe
                 MessageBox.Show("AI wins!");
                 computerWins++;
                 aiLabel.Text = "AI Wins- " + computerWins;
-                resetGame();
+                ResetGame();
             }
         }
     }
