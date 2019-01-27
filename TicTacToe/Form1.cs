@@ -42,6 +42,14 @@ namespace TicTacToe
 
         private void playerClick(object sender, EventArgs e)
         {
+            Button button = (Button)sender; // which button was clicked
+            currentPlayer = Player.X; // set player to X
+            button.Text = currentPlayer.ToString(); // set button text to player X
+            button.Enabled = false; // disable button when clicked
+            button.BackColor = System.Drawing.Color.Cyan; // change the player colour to Cyan
+            buttons.Remove(button); // remove the button from the BUTTONS LIST so the AI cant overlap with player.
+            Check(); // check if the player won
+            AImoves.Start(); // start the AI timer
         }
 
         private void AImove(object sender, EventArgs e)
@@ -68,10 +76,6 @@ namespace TicTacToe
 
         private void resetGame()
         {
-        }
-
-        private void Check()
-        {
             // check each of the button with given tag "play"
             foreach (Control X in this.Controls)
             {
@@ -83,6 +87,40 @@ namespace TicTacToe
                 }
             }
             loadButtons(); // add all playable buttons to the list array.
+        }
+
+        private void Check()
+        {
+            /* in this function we will check if the player othe AI has won
+             we have two very large if statements with the WIN CASES */
+            if (button1.Text == "X" && button2.Text == "X" && button3.Text == "X"
+                || button4.Text == "X" && button5.Text == "X" && button6.Text == "X"
+                || button7.Text == "X" && button8.Text == "X" && button9.Text == "X"
+                || button1.Text == "X" && button4.Text == "X" && button7.Text == "X"
+                || button2.Text == "X" && button5.Text == "X" && button8.Text == "X"
+                || button3.Text == "X" && button6.Text == "X" && button9.Text == "X"
+                || button3.Text == "X" && button5.Text == "X" && button7.Text == "X")
+            {
+                AImoves.Stop(); // stop the timer
+                MessageBox.Show("Player Wins!");
+                playerWins++;
+                playerLabel.Text = "Player Wins- " + playerWins;
+                resetGame();
+            }
+            else if (button1.Text == "O" && button2.Text == "O" && button3.Text == "O"
+              || button4.Text == "O" && button5.Text == "O" && button6.Text == "O"
+              || button7.Text == "O" && button8.Text == "O" && button9.Text == "O"
+              || button1.Text == "O" && button4.Text == "O" && button7.Text == "O"
+              || button2.Text == "O" && button5.Text == "O" && button8.Text == "O"
+              || button3.Text == "O" && button6.Text == "O" && button9.Text == "O"
+              || button3.Text == "O" && button5.Text == "O" && button7.Text == "O")
+            {
+                AImoves.Stop();
+                MessageBox.Show("AI wins!");
+                computerWins++;
+                aiLabel.Text = "AI Wins- " + computerWins;
+                resetGame();
+            }
         }
     }
 }

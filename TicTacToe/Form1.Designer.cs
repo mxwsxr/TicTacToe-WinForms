@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.playerLabel = new System.Windows.Forms.Label();
+            this.aiLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -44,29 +44,29 @@
             this.AImoves = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // label1
+            // playerLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Player Wins - 0";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.playerLabel.AutoSize = true;
+            this.playerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerLabel.ForeColor = System.Drawing.Color.LimeGreen;
+            this.playerLabel.Location = new System.Drawing.Point(12, 9);
+            this.playerLabel.Name = "playerLabel";
+            this.playerLabel.Size = new System.Drawing.Size(128, 20);
+            this.playerLabel.TabIndex = 0;
+            this.playerLabel.Text = "Player Wins - 0";
+            this.playerLabel.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // aiLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(562, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "AI Wins - 0";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.aiLabel.AutoSize = true;
+            this.aiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aiLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.aiLabel.Location = new System.Drawing.Point(562, 9);
+            this.aiLabel.Name = "aiLabel";
+            this.aiLabel.Size = new System.Drawing.Size(97, 20);
+            this.aiLabel.TabIndex = 1;
+            this.aiLabel.Text = "AI Wins - 0";
+            this.aiLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // button1
             // 
@@ -207,8 +207,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.aiLabel);
+            this.Controls.Add(this.playerLabel);
             this.Name = "Form1";
             this.Text = "Tic Tac Toe MOO ICT";
             this.Click += new System.EventHandler(this.playerClick);
@@ -219,8 +219,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label playerLabel;
+        private System.Windows.Forms.Label aiLabel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
